@@ -10,9 +10,9 @@ except ImportError:
 	
 ####SETTINGS####
 http = httplib2.Http()
-url_base = 'https://api.cloudmine.me/v1/app'
-app = ''
-api_key = ''
+cloudmine_url_base = 'https://api.cloudmine.me/v1/app'
+singly_app = ''
+singly_api_key = ''
 
 def index(request, template='index.html'):
     services = [
