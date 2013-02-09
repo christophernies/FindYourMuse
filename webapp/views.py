@@ -7,12 +7,11 @@ try:
 	import json
 except ImportError:
 	import simplejson as json
-	
+
 ####SETTINGS####
-http = httplib2.Http()
 cloudmine_url_base = 'https://api.cloudmine.me/v1/app'
-singly_app = ''
-singly_api_key = ''
+hearst_url_base = 'http://hearst.api.mashery.com/'
+gilt_url_base = 'https://api.gilt.com/v1'
 
 def index(request, template='index.html'):
     services = [
@@ -25,10 +24,11 @@ def index(request, template='index.html'):
         'FitBit',
         'Email'
     ]
-    if request.user.is_authenticated():
-        user_profile = request.user.get_profile()
-        profiles = user_profile.profiles
-    response = render_to_response(
-            template, locals(), context_instance=RequestContext(request)
-        )
-    return response
+
+if request.user.is_authenticated():
+    user_profile = request.user.get_profile()
+    profiles = user_profile.profiles
+response = render_to_response(
+        template, locals(), context_instance=RequestContext(request)
+    )
+return response
