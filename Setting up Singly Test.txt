@@ -1,0 +1,12 @@
+Step 1. git clone https://github.com/Singly/python_django_skeleton.git
+Step 2. cd python_django_skeleton
+Step 3. pip install -r requirements.pip
+Step 4. Create a Singly app at https://singly.com/apps
+Step 5. Go to app page
+Step 6. Open webapp/settings.py
+Step 7. Change "America/Chicago" to "America/New_York"
+Step 8. Insert Client ID and Client Secret from app page on https://singly.com/apps at the top
+Step 9. cd ..
+Step 10. python manage.py syncdb
+
+DONE!
