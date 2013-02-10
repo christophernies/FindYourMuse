@@ -37,11 +37,30 @@ def index(request, template='index.html'):
     return response
 
 def FilterByMuse(request):
+	array_results = []
+	style_dict = {}
 	if 'q' in request.GET:
 		search_term = request.GET['q']
 		search_term = search_term.replace(' ','%20')
-		limit = 50
+		limit = 10
 		API_results = ArticleSearch(search_term, limit, hearst_api_key)
+		API_JSON = json.loads(API_results)['items']
+
+#Getting rid of articles without images
+		for x in API_JSON:
+			if str(x).find('IMAGE_1_default_url') != -1:
+				print str(x['IMAGE_1_default_url'])
+			else:
+				API_JSON.remove(x)
+
+		# return render_to_response('index.html')
+
+		for x in range(len(API_JSON)):
+			style_dict['image'] = API_JSON[x]['IMAGE_1_default_url']
+			style_dict['url'] = API_JSON[x]['canonical_url']
+			style_dict['title'] = API_JSON[x]['title']
+			array_results.append(style_dict)
+			style_dict = {}
 		link_to_profile = ''
-		return render_to_response('index.html',{"search_term": API_results, "link_to_profile":link_to_profile})
-	
+		return render_to_response('index.html',{"search_term": array_results, "link_to_profile":link_to_profile})
+			
