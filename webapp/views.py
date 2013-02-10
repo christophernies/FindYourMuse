@@ -136,6 +136,7 @@ def FilterByMuse(request):
 			style_dict['title'] = images[x]['article_title']
 			style_dict['publication'] = images[x]['publication']
 			style_dict['paragraph'] = images[x]['paragraph']
+			style_dict['gilt_product'] = Product.objects.order_by('?')[0]
 			array_results.append(style_dict)
 			style_dict = {}
 		return render_to_response('ResultsPage.html', {"search_term": array_results})
