@@ -32,6 +32,7 @@
       body {
         padding-top: 60px;
         padding-bottom: 40px;
+		background-color: #899691;
       }
       .sidebar-nav {
         padding: 9px 0;
@@ -62,7 +63,7 @@
 		  bottom: 0;
 		  left: 0;
 		  z-index: 1040;
-		  background-color: #000000;
+		  background-color: #899691;
 		}
 		.modal-backdrop.fade {
 		  opacity: 0;
@@ -208,7 +209,8 @@
 		}
 
 		.modal-header button {
-			padding-top: 7px;	
+			padding-top: 7px;
+			background-color: #C7C6AE;	
 		}
 
 		.modal-body h5 img {
@@ -275,7 +277,7 @@
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="/static/assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="/static/assets/ico/favicon.png">
-  <title>Singly Django Example</title>
+  <title>FindYourMuse</title>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
@@ -352,17 +354,16 @@
     <div id="container">
         {% for image in search_term %}
             <div class="item">
-                <a href="#myModal" role="button" class="btn" data-toggle="modal"><img src="{{image.image}}"</img></a>
+                <a href="#myModal-{{forloop.counter}}" role="button" class="btn" data-toggle="modal"><img src="{{image.image}}"</img></a>
                 {{image.text}}
             </div>
-        {% endfor %}
     </div>
 
         <!-- Button to trigger modal -->
     <!-- <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
      
     <!-- Modal -->
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="myModal-{{forloop.counter}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         
         <div class="modal-header">
          	
@@ -386,7 +387,8 @@
                 	
                     <h3>Article Title Will Go Here</h3>
             
-                    <img src="http://placehold.it/670x400">
+                    <!-- <img src="http://placehold.it/670x400"> -->
+                    <img src="{{image.image}}">
                     
                     <div class="article-excerpt">
                         <p class="muted"><small>Saturday February 9, 2013</small></p>
@@ -474,7 +476,7 @@
         
         
     </div>
-
+        {% endfor %}
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
