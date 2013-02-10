@@ -1,3 +1,4 @@
+from login_credentials import *
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.http import HttpResponse
