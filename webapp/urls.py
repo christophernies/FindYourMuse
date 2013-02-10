@@ -10,6 +10,6 @@ urlpatterns = patterns('',
     url(r'', include('singly.urls')),
     url(r'^$', 'index', name='index'),
     url('^results$', FilterByMuse),
-    url('^gilt$', ScrapeGilt)
+    (url(r'^admin/', include(admin.site.urls)),
 )
 
