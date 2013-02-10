@@ -31,7 +31,7 @@ cloudmine_url_base = 'https://api.cloudmine.me/v1/app'
 hearst_url_base = 'http://hearst.api.mashery.com/'
 gilt_url_base = 'https://api.gilt.com/v1'
 
-def index(request, template='index.html'):
+def index(request, template='LandingPage.html'):
     services = [
         'Facebook',
         'foursquare',
@@ -121,6 +121,7 @@ def FilterByMuse(request):
 		for x in range(len(images)):
 			style_dict['name'] = search_term.replace('%20',' ')
 			style_dict['image'] = images[x]['image']
+			print style_dict['image']
 			style_dict['id'] = images[x]['id']
 			style_dict['url'] = images[x]['url']
 			style_dict['title'] = images[x]['article_title']
@@ -130,5 +131,5 @@ def FilterByMuse(request):
 			array_results.append(style_dict)
 			style_dict = {}
 
-		return render_to_response('index.html', {"search_term": array_results})
+		return render_to_response('ResultsPage.html', {"search_term": array_results})
 
