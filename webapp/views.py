@@ -39,7 +39,9 @@ def index(request, template='index.html'):
 def FilterByMuse(request):
 	if 'q' in request.GET:
 		search_term = request.GET['q']
-		limit = 10
-		API_results = ArticleSearch(search_term, limit, hearst_api_key);
-		return render_to_response('index.html',{"search_term": API_results})
+		search_term = search_term.replace(' ','%20')
+		limit = 50
+		API_results = ArticleSearch(search_term, limit, hearst_api_key)
+		link_to_profile = ''
+		return render_to_response('index.html',{"search_term": API_results, "link_to_profile":link_to_profile})
 	
