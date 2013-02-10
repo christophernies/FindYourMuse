@@ -32,3 +32,7 @@ def index(request, template='index.html'):
             template, locals(), context_instance=RequestContext(request)
         )
     return response
+
+def index2(request):
+    return HttpResponse("fuck you world")
+    
