@@ -4,6 +4,8 @@ from django.template.context import RequestContext
 from django.http import HttpResponse
 import urllib, httplib2, os, sys, csv, time
 from httplib import BadStatusLine
+from hearst_apis import *
+
 try:
 	import json
 except ImportError:
