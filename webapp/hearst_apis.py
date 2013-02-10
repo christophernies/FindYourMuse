@@ -1,5 +1,7 @@
 import urllib, httplib2, os, sys, csv, time
 from httplib import BadStatusLine
+from login_credentials import *
+
 try:
 	import json
 except ImportError:
