@@ -1,8 +1,9 @@
+from difflib import *
 from login_credentials import *
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.http import HttpResponse
-import urllib, httplib2, os, sys, csv, time
+import urllib, httplib2, os, sys, csv, time, re
 from httplib import BadStatusLine
 from hearst_apis import *
 from login_credentials import *
@@ -57,22 +58,20 @@ def FilterByMuse(request):
 		images = []
 		description_keywords = json.loads(ArticleImageSearch('', search_term, search_term, limit, hearst_api_key))['items']
 		for x in description_keywords:
-			images.append(x['default_url'])
+			if {'image': x['default_url'],'id': x['id']} not in images:
+				images.append({'image': x['default_url'],'id': x['id']})
 		caption_keywords = json.loads(ArticleImageSearch(search_term, '', search_term, limit, hearst_api_key))['items']
 		for x in caption_keywords:
-			images.append(x['default_url'])
+			if {'image': x['default_url'],'id': x['id']} not in images:
+				images.append({'image':x['default_url'],'id':x['id']})
 		caption_description = json.loads(ArticleImageSearch(search_term, search_term, '', limit, hearst_api_key))['items']
 		for x in caption_description:
-			images.append(x['default_url'])
-		
+			if {'image': x['default_url'],'id': x['id']} not in images:
+				images.append({'image':x['default_url'],'id':x['id']})
+
 		for x in images[:]:
-			if x.find('handbag') != -1:
+			if x['image'].find('handbag') != -1:
 				images.remove(x)
-
-		for x in images:
-			print str(x) + '\n'
-
-
 		
 		API_JSON = good_articles
 
