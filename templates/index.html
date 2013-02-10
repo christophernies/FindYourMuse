@@ -10,10 +10,19 @@
     <!-- Le styles -->
     <link href="/static/assets/css/bootstrap.css" rel="stylesheet">
 
+    <script src="/static/assets/jquery.js"></script>
+    <script src="/static/assets/jquery.masonry.min.js"/>
+
 
     <script type="text/javascript">
 
-
+        $(function(){
+            $('#container').masonry({
+                // options
+                itemSelector : '.item',
+                columnWidth : 240
+            });
+        });
 
 	</script>
 
@@ -244,6 +253,12 @@
 
 		}
 
+      .item {
+          width: 220px;
+          margin: 10px;
+          float: left;
+      }
+
 
 
     </style>
@@ -333,12 +348,16 @@
     </div>
     <ul id="twitter"></ul>
     {% endif %}    -->
-	{% for image in search_term %}
-		<img src="{{image.image}}"></a>
-		<a href="#myModal" role="button" class="btn" data-toggle="modal">link</a>
-		{{image.text}}
-		<br>
-	{% endfor %}
+
+    <div id="container">
+        {% for image in search_term %}
+            <div class="item">
+                <a href="#myModal" role="button" class="btn" data-toggle="modal"><img src="{{image.image}}"</img></a>
+                {{image.text}}
+            </div>
+        {% endfor %}
+    </div>
+
         <!-- Button to trigger modal -->
     <!-- <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
      
