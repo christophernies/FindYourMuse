@@ -10,7 +10,8 @@
     <!-- Le styles -->
     <link href="/static/assets/css/bootstrap.css" rel="stylesheet">
 
-    <script src="/static/assets/jquery.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- <script src="/static/assets/jquery.js"></script> -->
     <script src="/static/assets/jquery.masonry.min.js"/>
 
 
@@ -26,7 +27,20 @@
 
 	</script>
 
+    <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js"></script>
 
+    {%   ifnotequal twitter_name "" %}
+    <script type="text/javascript" charset="utf-8">
+        getTwitters('tweet-1', {
+            id: {{ twitter_name }},
+            count: 1,
+            enableLinks: true,
+            ignoreReplies: true,
+            clearContents: true,
+            template: '"%text%" <a href="http://twitter.com/%user_screen_name%/statuses/%id%/">%time%</a>'
+        });
+    </script>
+    {%  endifnotequal %}
 
 	<style type="text/css">
       body {
@@ -223,7 +237,7 @@
 
 
 	.shadow-bg {
-		background-image: url('img/shadow/shadow.png');	
+		background-image: url('/static/img/shadow/shadow.png');
 		background-repeat: repeat-x;
 		background-position: top;
 		border-top: 1px #ccc solid;
@@ -402,15 +416,6 @@
                 
                 <div class="span4">
                 
-                	<div class="share">
-                    
-                            <p><small>Singly sharing icons will go here if we get that far...</small></p>
-                            
-                            <hr class="divider">
-                            
-                    </div><!-- /.share-->
-                    
-            
                     <div class="shopping">
                         
                         <h5><img src="/static/logos/gilt_20x20.jpg" title="Gilt" class="pull-left" />Create your own look with Gilt</h5>
@@ -447,25 +452,20 @@
                         <hr class="divider">
                             
                     </div> <!-- /.shopping-->
-                    
-                    <div class="twitter">
-                            <h5><img src="/static/logos/twitter_20x20.jpg" title="Twitter" class="pull-left" /> {{image.name}} on Twitter</h5>
-                            <p><blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec purus in ante pretium blandit. Aliquam erat volutpat. Nulla libero lectus."</blockquote></p>
-                            <p class="blockquote-size-match">-<a href="#"> @TwitterName</a> <span class="muted"> 12 minutes ago</span></p>
-        
-                            
-                            
-                            <hr class="divider">
-                            
+
+                    {%  ifnotequal twitter_name "" %}
+                    <div>
+                            <h5><img src="/static/logos/twitter_20x20.jpg" title="Twitter" class="pull-left" /> @{{image.name}} on Twitter</h5>
+                            <p><blockquote> <div id="tweet-{{ forloop.counter }}"></div></blockquote></p></blockquote></p>
+                            <p class="blockquote-size-match">-<a href="#"> @Beyonce</a> <span class="muted"> 12 minutes ago</span></p>
+                            <p><blockquote>
+
+                        <hr class="divider">
                     </div><!-- /.twitter-->
-                    
-                    <div class="facebook">
-                            <h5><img src="/static/logos/facebook_20x20.jpg" title="Facebook" />{{image.name}} on Facebook</h5>
-                            <p><blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec purus in ante pretium blandit. Aliquam erat volutpat. Nulla libero lectus."</blockquote></p>
-                            <p class="blockquote-size-match">-<a href="#"> Facebook Fan Page</a> <span class="muted"> 12 minutes ago</span></p>
-                            
-                    </div><!-- /.twitter-->
-                
+                    {%  endifnotequal %}
+
+
+
                 </div><!-- /.span4 -->
             
             </div><!-- /.modal-body -->
@@ -481,7 +481,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/assets/js/jquery.js"></script>
-    <script src="/static/assets/js/bootstrap-transition.js"</script>
+    <script src="/static/assets/js/bootstrap-transition.js"></script>
     <script src="/static/assets/js/bootstrap-alert.js"></script>
     <script src="/static/assets/js/bootstrap-modal.js"></script>
     <script src="/static/assets/js/bootstrap-dropdown.js"></script>

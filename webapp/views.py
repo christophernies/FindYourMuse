@@ -8,7 +8,8 @@ import urllib, httplib2, os, sys, csv, time, re
 from httplib import BadStatusLine
 from hearst_apis import *
 from login_credentials import *
-from gilt.models import Product
+from gilt.models import Product, Store
+from webapp.models import Person
 
 try:
 	import json
@@ -58,6 +59,13 @@ def FilterByMuse(request):
 	style_dict = {}
 	if 'q' in request.GET:
 		search_term = request.GET['q']
+		person = None
+
+		try:
+			person = Person.objects.get(name=search_term)
+		except:
+			pass
+
 		search_term = search_term.replace(' ','%20')
 		# print search_term
 		limit = 12
@@ -107,6 +115,7 @@ def FilterByMuse(request):
 		# print good_articles
 		API_JSON = good_articles
 
+ 		
 		# return render_to_response('index.html')
 
 		# for x in range(len(API_JSON)):
@@ -127,9 +136,29 @@ def FilterByMuse(request):
 			style_dict['title'] = images[x]['article_title']
 			style_dict['publication'] = images[x]['publication']
 			style_dict['paragraph'] = images[x]['paragraph']
-			style_dict['gilt_product'] = gilt_product = Product.objects.order_by('?')[0]
-			array_results.append(style_dict)
-			style_dict = {}
 
 		return render_to_response('ResultsPage.html', {"search_term": array_results})
+"""
+			if person is not None:
+				male_store = Store.objects.get(name='men')
+				female_store = Store.objects.get(name='women')
+				if person.gender == 'male':
+					gilt_product = Product.objects.filter(store=male_store).order_by('?')[0]
+					print "male store"
+				else:
+					gilt_product = Product.objects.filter(store=female_store).order_by('?')[0]
+					print "female store"
+			else:
+				print "whole store"
+				gilt_product = Product.objects.order_by('?')[0]
 
+			style_dict['gilt_product'] = gilt_product
+			array_results.append(style_dict)
+			style_dict = {}
+			link_to_profile = ''
+		if person is not None:
+			twitter_name = person.twitter
+		else:
+			twitter_name = ''
+		return render_to_response('index.html', {"search_term": array_results, "twitter_name" : twitter_name})
+"""
