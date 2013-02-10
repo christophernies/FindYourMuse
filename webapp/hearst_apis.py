@@ -14,6 +14,7 @@ hearst_url_base = 'http://hearst.api.mashery.com/'
 gilt_url_base = 'https://api.gilt.com/v1'
 
 http = httplib2.Http()
+site_ids = [1,2,17,584,817,567,35,603]
 
 def postToCloudmine():
 	data = "{\"data\":\"21\"}";
@@ -28,6 +29,7 @@ def ArticleSearch(keywords, limit, hearst_api_key):
 		limit = 10;
 	call_type = 'Article'
 	url = '/' + call_type + '/search?_pretty=1&shape=full&start=0&limit=' + str(limit) + '&sort=publish_date%2Cdesc&total=0&api_key='+hearst_api_key
+	url += ''.join(map(lambda x: "&site_id="+str(x),site_ids))
 	if keywords != '':
 		url += '&keywords=' + keywords
 	headers = {}
@@ -52,12 +54,6 @@ def ArticleImageSearch(caption, description, keywords, limit, hearst_api_key):
 	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 	return content
-	
-caption = ''
-description = ''
-keywords = 'Chloe%20Sevigny'
-limit = 10
-ArticleImageSearch(caption, description, keywords, limit, hearst_api_key)
 
 def ArticleSectionSearch(keywords, limit, hearst_api_key):
 	# http://hearst.api.mashery.com/ArticleSection/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
