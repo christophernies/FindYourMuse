@@ -29,7 +29,7 @@ def index(request, template='index.html'):
 if request.user.is_authenticated():
     user_profile = request.user.get_profile()
     profiles = user_profile.profiles
-response = render_to_response(
+	response = render_to_response(
         template, locals(), context_instance=RequestContext(request)
     )
-return response
+	return response
