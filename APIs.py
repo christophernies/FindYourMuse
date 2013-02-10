@@ -6,14 +6,14 @@ except ImportError:
 	import simplejson as json
 
 ####SETTINGS####
-cloudmine_app = ''
-cloudmine_api_key = ''
-hearst_api_key = ''
-
 cloudmine_url_base = 'https://api.cloudmine.me/v1/app'
 hearst_url_base = 'http://hearst.api.mashery.com/'
 gilt_url_base = 'https://api.gilt.com/v1'
-gilt_api_key = ''
+
+cloudmine_app = 'fc4b2b7a225543e796c753590a2c5a1d'
+cloudmine_api_key = '84e8b6c7379b4952af94f34c7ed283bc'
+hearst_api_key = '8qgkp2gtvrbudmfq2mvc2qrv'
+gilt_api_key = '90d190b533b721fce5717c04ff32fe7e'
 
 http = httplib2.Http()
 
@@ -33,7 +33,7 @@ def ArticleSearch(keywords, limit, hearst_api_key):
 	if keywords != '':
 		url += '&keywords=' + keywords
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 
@@ -51,7 +51,7 @@ def ArticleImageSearch(caption, description, keywords, limit, hearst_api_key):
 		url += '&keywords=' + keywords
 	url += '&api_key='+hearst_api_key
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 	
@@ -70,7 +70,7 @@ def ArticleSectionSearch(keywords, limit, hearst_api_key):
 	if keywords != '':
 		url += '&keywords='+keywords
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 
@@ -85,7 +85,7 @@ def AuthorSearch(limit, first_name, last_name, hearst_api_key):
 	if last_name != '':
 		url += '&last_name='+last_name
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 
@@ -96,7 +96,7 @@ def ArticleTypeSearch(limit):
 	call_type = 'ArticleType'
 	url = '/' + call_type + '/search?_pretty=1&start=0&limit=' + str(limit) + '&sort=name%2Casc&total=0&api_key='+hearst_api_key
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 
@@ -109,7 +109,7 @@ def SourceSearch(name, limit):
 	if name != '':
 		url += '&name=' + name
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 
@@ -118,7 +118,7 @@ def SourceSearch(name, limit):
 #  	call_type = 'AdCategory'
 # 	url = '/' + call_type + '/search?_pretty=1&start=0&limit=100&sort=name%2Casc&total=0&api_key='+hearst_api_key
 # 	headers = {}
-# 	body = {}
+# 	body = ""
 # 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 # 	print str(response) + '\t' + str(content)
 	
@@ -127,7 +127,7 @@ def SourceSearch(name, limit):
 # 	call_type = 'ArticleCategory'
 # 	url = '/' + call_type + '/search?'
 # 	headers = {}
-# 	body = {}
+# 	body = ""
 # 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 # 	print str(response) + '\t' + str(content)
 # 	
@@ -136,7 +136,7 @@ def SourceSearch(name, limit):
 # 	call_type = 'Template'
 # 	url = '/' + call_type + '/search?'
 # 	headers = {}
-# 	body = {}
+# 	body = ""
 # 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 # 	print str(response) + '\t' + str(content)
 # 
@@ -145,7 +145,7 @@ def SourceSearch(name, limit):
 # 	call_type = 'Site'
 # 	url = '/' + call_type + '/search?'
 # 	headers = {}
-# 	body = {}
+# 	body = ""
 # 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 # 	print str(response) + '\t' + str(content)
 	
@@ -156,7 +156,7 @@ def GiltUpcomingSales(store, gilt_api_key):
 		url = '/sales/upcoming.json&apikey=' + gilt_api_key
 	print url
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(gilt_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 
@@ -165,7 +165,7 @@ def GiltSaleDetail(store, sale_key, gilt_api_key):
 		url = '/sales/' + store + '/' + sale_key + 'detail.json?apikey=' + gilt_api_key
 	print url
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(gilt_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 	
@@ -174,7 +174,7 @@ def GiltProductDetail(product_id, gilt_api_key):
 		url = '/products/' + product_id + '/detail.json?apikey=' + gilt_api_key
 	print url
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(gilt_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 	
@@ -183,7 +183,7 @@ def GiltProductDetail(gilt_api_key):
 		url = '/products/categories.json?apikey=' + gilt_api_key
 	print url
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(gilt_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 
@@ -194,7 +194,7 @@ def GiltActiveSales(store, gilt_api_key):
 		url = '/sales/active.json&apikey=' + gilt_api_key
 	print url
 	headers = {}
-	body = {}
+	body = ""
 	response, content = http.request(gilt_url_base+url, 'GET', headers=headers, body=body)
 	print str(response) + '\t' + str(content)
 
