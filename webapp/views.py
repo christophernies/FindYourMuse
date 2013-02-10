@@ -84,7 +84,6 @@ def FilterByMuse(request):
 			style_dict['image'] = API_JSON[x]['IMAGE_1_default_url']
 			style_dict['url'] = API_JSON[x]['canonical_url']
 			style_dict['title'] = API_JSON[x]['title']
-			style_dict['text'] = API_JSON[x]['body'][0]['blog_element'][0]['paragraph']
 			array_results.append(style_dict)
 			style_dict = {}
 		link_to_profile = ''
