@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>FindYourMuse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet">
+    
+    
+    <script type="text/javascript">
+
+	
+
+	</script>
+    
+	
+	
+	<style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+	  
+		.testA {
+			background-color: green;  
+	  	}
+		
+		.testB {
+			background-color: yellow;  
+	  	}
+		
+		
+		.modal-backdrop {
+		  position: fixed;
+		  top: 0;
+		  right: 0;
+		  bottom: 0;
+		  left: 0;
+		  z-index: 1040;
+		  background-color: #000000;
+		}
+		.modal-backdrop.fade {
+		  opacity: 0;
+		}
+		
+		.modal-backdrop,
+		.modal-backdrop.fade.in {
+		  opacity: 0.8;
+		  filter: alpha(opacity=80);
+		}
+		
+		.modal {
+		  position: fixed;
+		  top: 10%;
+		  width: 90%;
+		  left: 50%;
+		  z-index: 1050;
+		  margin-left: -550px;
+		  background-color: #ffffff;
+		  border: 1px solid #999;
+		  border: 1px solid rgba(0, 0, 0, 0.3);
+		  *border: 1px solid #999;
+		  -webkit-border-radius: 0px;
+			 -moz-border-radius: 0px;
+				  border-radius: 0px;
+		  outline: none;
+		  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+			 -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+				  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+		  -webkit-background-clip: padding-box;
+			 -moz-background-clip: padding-box;
+				  background-clip: padding-box;
+		}
+		
+		.modal-header {
+		  padding: 9px 15px;
+		  border-bottom: 1px solid #eee;
+		}
+		
+		.modal-header .close {
+		  margin-top: 2px;
+		}
+		
+		.modal-header h3 {
+		  margin: 0;
+		  line-height: 30px;
+	
+		}
+		
+		.modal-body {
+		  position: relative;
+		  padding-right: 15px;
+		  padding-left: 15px;
+		  padding-bottom: 20px;
+		  height: 100%;
+		}
+		
+		.modal-form {
+		  margin-bottom: 0;
+		}
+		
+		.modal-footer {
+		  padding: 14px 15px 15px;
+		  margin-bottom: 0;
+		  text-align: right;
+		  background-color: #f5f5f5;
+		  border-top: 1px solid #ddd;
+		  -webkit-border-radius: 0 0 0px 0px;
+			 -moz-border-radius: 0 0 0px 0px;
+				  border-radius: 0 0 0px 0px;
+		  *zoom: 1;
+		  -webkit-box-shadow: inset 0 1px 0 #ffffff;
+			 -moz-box-shadow: inset 0 1px 0 #ffffff;
+				  box-shadow: inset 0 1px 0 #ffffff;
+		}
+		
+		.modal-footer:before,
+		.modal-footer:after {
+		  display: table;
+		  line-height: 0;
+		  content: "";
+		}
+		
+		.modal-footer:after {
+		  clear: both;
+		}
+		
+		.modal-footer .btn + .btn {
+		  margin-bottom: 0;
+		  margin-left: 5px;
+		}
+		
+		.modal-footer .btn-group .btn + .btn {
+		  margin-left: -1px;
+		}
+		
+		.modal-footer .btn-block + .btn-block {
+		  margin-left: 0;
+		}
+
+	  
+	  .strike {
+	    text-decoration: line-through;
+		}
+		
+		.gilt {
+		   font-style: italic;
+		   font-weight: bold;
+		   color: #c98702;	
+		}
+		
+		.article-excerpt {
+			padding-top: 20px;
+			padding-bottom: 30px;
+			padding-right: 20px;	
+			font-size: 14px;
+		}
+	
+		blockquote,
+		.blockquote-size-match {
+			font-size: 12px;	
+			line-height: 14px;
+		}
+		
+		blockquote {
+			margin-top: 30px;
+		}
+		
+		.see-more {
+			padding-left: 20px;
+			padding-top: 15px;
+			font-size: 12px;	
+			font-weight: bold;
+		}
+		
+		.myModalLabel {
+			font-size: 18px;
+			font-weight: bold;	
+		}
+		
+		.modal-titling {
+		  padding-top: 10px;	
+		}
+		
+		.modal-header button {
+			padding-top: 7px;	
+		}
+		
+		.modal-body h5 img {
+			padding-right: 8px;	
+		}
+		
+		.shopping .row-fluid {
+			padding-top: 20px;
+		}
+		
+	
+	.shadow-bg {
+		background-image: url('img/shadow/shadow.png');	
+		background-repeat: repeat-x;
+		background-position: top;
+		border-top: 1px #ccc solid;
+	}
+	
+	@media (min-width: 900x) and (max-width: 1199px) {
+		
+		  .modal {
+			margin-left: -450px;
+		  }
+		  
+		}
+		
+		
+		@media (min-width: 825px) and (max-width: 899px) {
+		
+		  .modal {
+			margin-left: -425px;
+		  }
+		  
+		}
+		
+		
+		@media (min-width: 765px) and (max-width: 824px) {
+		
+		  .modal {
+			margin-left: -400px;
+		  }
+		  
+		}
+
+		
+	  
+    </style>
+    <link href="/static/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/static/assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="/static/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="/static/assets/ico/favicon.png">
+  </head>
+
+  <body>
+	{% for image in search_term %}
+		<img src="{{image.image}}"></a>
+		<a href="#myModal" role="button" class="btn" data-toggle="modal">link</a>
+		{{image.text}}
+		<br>
+	{% endfor %}
+        <!-- Button to trigger modal -->
+    <!-- <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
+     
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        
+        <div class="modal-header">
+         	
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        	
+           	<div class="modal-titling">
+           
+        	<p id="myModalLabel"> 
+            	<span class="myModalLabel">Firstname Lastname</span> <a href="#" class="see-more">See more looks from Firstname Lastname →</a>
+            </p>
+            
+            </div><!-- /.modal-titling --> 
+        	
+        </div><!-- /.modal-header -->
+        
+    	<div class="modal-body shadow-bg">
+        
+            <div class="row-fluid">
+                
+                <div class="span8">
+                	
+                    <h3>Article Title Will Go Here</h3>
+            
+                    <img src="http://placehold.it/670x400">
+                    
+                    <div class="article-excerpt">
+                        <p class="muted"><small>Saturday February 9, 2013</small></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam purus diam, consequat nec aliquet volutpat, sollicitudin nec eros. Etiam lectus augue, fermentum ut sagittis id, euismod id quam. Donec scelerisque, est ac dapibus lacinia, elit mauris sagittis arcu, et vulputate nulla arcu in turpis. Nunc euismod diam non turpis consequat sed aliquam lorem pretium. Aliquam vitae egestas est. Vivamus in odio sit amet dolor dapibus laoreet nec ac enim. Nullam sed varius lorem. Praesent sit amet quam sapien. Nulla non euismod lorem.</p>
+                        
+                        <a href="#">Read more at PublicationName →</a>
+                    </div>
+                    
+                
+                </div><!-- /.span8 -->
+                
+                <div class="span4">
+                
+                	<div class="share">
+                    
+                            <p><small>Singly sharing icons will go here if we get that far...</small></p>
+                            
+                            <hr class="divider">
+                            
+                    </div><!-- /.share-->
+                    
+            
+                    <div class="shopping">
+                        
+                        <h5><img src="/static/assets/img/logos/gilt_20x20.jpg" title="Gilt" class="pull-left" />Create your own look with Gilt</h5>
+                                    
+                                    
+                                    <div class="row-fluid">
+                
+                                    
+                                    	<div class="span4 shopping-img">
+                                        	
+                                             <a href="#"><img src="http://placehold.it/100x100"></a> 
+                                           
+                                        </div><!-- /.span4-->
+                                        
+                                        <div class="span8 shopping-details">
+                                        	
+                                            
+                                            <div class="shopping-item-price">
+                                                <p><span class="muted strike">$195</span> <span class="gilt">$79</span></p>
+                                            </div><!-- /.shopping-item-price-->
+                                            
+                                            
+                                            <div class="shopping-item-name">
+                                                <p class="blockquote-size-match"><a href="#">Eyelash Fringe Cashmere Silk Scarf 80" x 20"</a></p>
+                                            </div><!-- /.shopping-item-name-->
+                                            
+                                        
+                                        </div><!-- /.span 8-->
+                                        
+                                        </div><!-- /.row -->
+                                    
+                       
+        
+                        <hr class="divider">
+                            
+                    </div> <!-- /.shopping-->
+                    
+                    <div class="twitter">
+                            <h5><img src="img/logos/twitter_20x20.jpg" title="Twitter" class="pull-left" /> Firstname Lastname on Twitter</h5>
+                            <p><blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec purus in ante pretium blandit. Aliquam erat volutpat. Nulla libero lectus."</blockquote></p>
+                            <p class="blockquote-size-match">-<a href="#"> @TwitterName</a> <span class="muted"> 12 minutes ago</span></p>
+        
+                            
+                            
+                            <hr class="divider">
+                            
+                    </div><!-- /.twitter-->
+                    
+                    <div class="facebook">
+                            <h5><img src="/static/assets/img/logos/facebook_20x20.jpg" title="Facebook" />Firstname Lastname on Facebook</h5>
+                            <p><blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec purus in ante pretium blandit. Aliquam erat volutpat. Nulla libero lectus."</blockquote></p>
+                            <p class="blockquote-size-match">-<a href="#"> Facebook Fan Page</a> <span class="muted"> 12 minutes ago</span></p>
+                            
+                    </div><!-- /.twitter-->
+                
+                </div><!-- /.span4 -->
+            
+            </div><!-- /.modal-body -->
+        
+        
+            	
+        </div><!-- /.modal-header -->
+        
+        
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/assets/js/jquery.js"></script>
+    <script src="/static/assets/js/bootstrap-transition.js"</script>
+    <script src="/static/assets/js/bootstrap-alert.js"></script>
+    <script src="/static/assets/js/bootstrap-modal.js"></script>
+    <script src="/static/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/static/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/static/assets/js/bootstrap-tab.js"></script>
+    <script src="/static/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/static/assets/js/bootstrap-popover.js"></script>
+    <script src="/static/assets/js/bootstrap-button.js"></script>
+    <script src="/static/assets/js/bootstrap-collapse.js"></script>
+    <script src="/static/assets/js/bootstrap-carousel.js"></script>
+    <script src="/static/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
