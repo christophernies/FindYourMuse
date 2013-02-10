@@ -11,3 +11,4 @@ urlpatterns = patterns('webapp.views',
     url(r'^$', 'index', name='index'),
     ('^results$', FilterByMuse),
 )
+
