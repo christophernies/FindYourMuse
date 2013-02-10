@@ -10,3 +10,11 @@ class Product(models.Model):
     image_url = models.CharField(max_length=200)
     store = models.ForeignKey(Store)
     item_url = models.CharField(max_length=200)
+    sale_price = models.CharField(max_length=200)
+    description = models.CharField(max_length=400)
+    name = models.CharField(max_length=200)
+    sale_price = models.CharField(max_length=200)
+    msrp_price = models.CharField(max_length=200)
+
+def __unicode(self):
+        return "material %s brand %s store %s" % (self.material, self.brand, self.store)

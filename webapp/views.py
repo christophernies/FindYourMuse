@@ -8,6 +8,7 @@ import urllib, httplib2, os, sys, csv, time, re
 from httplib import BadStatusLine
 from hearst_apis import *
 from login_credentials import *
+from gilt.models import Product
 
 try:
 	import json
@@ -118,8 +119,10 @@ def FilterByMuse(request):
 			style_dict['title'] = images[x]['article_title']
 			style_dict['publication'] = images[x]['publication']
 			style_dict['paragraph'] = images[x]['paragraph']
+			style_dict['gilt_product'] = gilt_product = Product.objects.order_by('?')[0]
 			array_results.append(style_dict)
 			style_dict = {}
-		link_to_profile = ''
-		return render_to_response('index.html',{"search_term": array_results, "link_to_profile":link_to_profile})
-			
+			link_to_profile = ''
+
+		return render_to_response('index.html', {"search_term": array_results, "link_to_profile": link_to_profile})
+
