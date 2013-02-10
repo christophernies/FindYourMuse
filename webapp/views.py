@@ -21,6 +21,7 @@ def remove_tags(text):
     text = text.replace("&#233;",'e')
     text = text.replace("&#160;","\"")
     text = text.replace("&#151;","\'")
+    text = text.replace("&#146;","\'")
     return TAG_RE.sub('', text)
 
 ####SETTINGS####
@@ -59,17 +60,16 @@ def FilterByMuse(request):
 		search_term = request.GET['q']
 		search_term = search_term.replace(' ','%20')
 		# print search_term
-		limit = 10
-		API_results = ArticleSearch(search_term, 50, hearst_api_key)
+		limit = 12
+		API_results = ArticleSearch(search_term, 100, hearst_api_key)
 		API_JSON = json.loads(API_results)['items']
 
 #Getting rid of articles without images
 		good_articles = [];
 		for x in API_JSON:
-			if str(x).find('IMAGE_1_default_url') != -1:
-				if str(x).find('blog_element') != -1:
-					if str(x).find('canonical_url') != -1:
-						good_articles.append(x)
+			if str(x).find('blog_element') != -1:
+				if str(x).find('canonical_url') != -1:
+					good_articles.append(x)
 
 		images = []
 		description_keywords = json.loads(ArticleImageSearch('', search_term, search_term, limit, hearst_api_key))['items']
