@@ -3,12 +3,13 @@ from django.http import HttpResponse
 from webapp.views import FilterByMuse
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
-urlpatterns = patterns('webapp.views',
+urlpatterns = patterns('',
     url(r'', include('singly.urls')),
-    url(r'^$', 'index', name='index'),
-    ('^results$', FilterByMuse),
+    url(r'^$', 'webapp.views.index'),
+    url('^results$', FilterByMuse),
+    url(r'^admin/', include(admin.site.urls)),
 )
 
