@@ -36,6 +36,9 @@ def index(request, template='index.html'):
         )
     return response
 
+def Test(request):
+    return render_to_response('modal.html')
+
 def FilterByMuse(request):
 	array_results = []
 	style_dict = {}
@@ -86,5 +89,5 @@ def FilterByMuse(request):
 			array_results.append(style_dict)
 			style_dict = {}
 		link_to_profile = ''
-		return render_to_response('index.html',{"search_term": array_results, "link_to_profile":link_to_profile})
+		return render_to_response('modal.html',{"search_term": array_results, "link_to_profile":link_to_profile})
 			
