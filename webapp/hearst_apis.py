@@ -1,4 +1,5 @@
 import urllib, httplib2, os, sys, csv, time
+from login_credentials import *
 from httplib import BadStatusLine
 try:
 	import json
@@ -17,7 +18,7 @@ def postToCloudmine():
 	url = '/' + cloudmine_app + '/text'
 	headers = {'Content-type': 'application/json', 'X-CloudMine-ApiKey':cloudmine_api_key}
 	response, content = http.request(cloudmine_url_base+url, 'POST', headers=headers, body=data)
-	print str(response) + '\t' + str(content)
+	return content
 
 def ArticleSearch(keywords, limit, hearst_api_key):
 	# http://hearst.api.mashery.com/Article/search?_pretty=1&shape=brief&start=0&limit=10&sort=publish_date%2Cdesc&total=0&api_key=
@@ -30,7 +31,7 @@ def ArticleSearch(keywords, limit, hearst_api_key):
 	headers = {}
 	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
+	return content
 
 def ArticleImageSearch(caption, description, keywords, limit, hearst_api_key):
 	# http://hearst.api.mashery.com/ArticleImage/search?_pretty=1&shape=brief&start=0&limit=10&sort=name%2Casc&total=0&api_key=
@@ -48,7 +49,7 @@ def ArticleImageSearch(caption, description, keywords, limit, hearst_api_key):
 	headers = {}
 	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
+	return content
 	
 caption = ''
 description = ''
@@ -67,7 +68,7 @@ def ArticleSectionSearch(keywords, limit, hearst_api_key):
 	headers = {}
 	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
+	return content
 
 def AuthorSearch(limit, first_name, last_name, hearst_api_key):
 	# http://hearst.api.mashery.com/Author/search?_pretty=1&start=0&limit=10&sort=last_name%2Casc&total=0&api_key='+hearst_api_key
@@ -82,7 +83,7 @@ def AuthorSearch(limit, first_name, last_name, hearst_api_key):
 	headers = {}
 	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
+	return content
 
 def ArticleTypeSearch(limit):
 	# http://hearst.api.mashery.com/ArticleType/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
@@ -93,7 +94,7 @@ def ArticleTypeSearch(limit):
 	headers = {}
 	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
+	return content
 
 def SourceSearch(name, limit):
 	# http://hearst.api.mashery.com/Source/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
@@ -106,7 +107,7 @@ def SourceSearch(name, limit):
 	headers = {}
 	body = ""
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
+	return content
 
 # def AdCategorySearch():
 # 	# http://hearst.api.mashery.com/AdCategory/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
