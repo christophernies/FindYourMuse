@@ -109,90 +109,38 @@ def SourceSearch(name, limit):
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 	return content
 
-# def AdCategorySearch():
-# 	# http://hearst.api.mashery.com/AdCategory/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
-#  	call_type = 'AdCategory'
-# 	url = '/' + call_type + '/search?_pretty=1&start=0&limit=100&sort=name%2Casc&total=0&api_key='+hearst_api_key
-# 	headers = {}
-# 	body = ""
-# 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
-# 	print str(response) + '\t' + str(content)
-	
-# def ArticleCategorySearch():
-# 	http://hearst.api.mashery.com/ArticleCategory/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
-# 	call_type = 'ArticleCategory'
-# 	url = '/' + call_type + '/search?'
-# 	headers = {}
-# 	body = ""
-# 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
-# 	print str(response) + '\t' + str(content)
-# 	
-# def TemplateSearch():
-# 	http://hearst.api.mashery.com/Template/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
-# 	call_type = 'Template'
-# 	url = '/' + call_type + '/search?'
-# 	headers = {}
-# 	body = ""
-# 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
-# 	print str(response) + '\t' + str(content)
-# 
-# def SiteSearch():
-# 	http://hearst.api.mashery.com/Site/search?_pretty=1&start=0&limit=10&sort=site_name%2Casc&api_key=8qgkp2gtvrbudmfq2mvc2qrv
-# 	call_type = 'Site'
-# 	url = '/' + call_type + '/search?'
-# 	headers = {}
-# 	body = ""
-# 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
-# 	print str(response) + '\t' + str(content)
-	
-def GiltUpcomingSales(store, gilt_api_key):
-	if store != '':
-		url = '/sales/' + store + '/upcoming.json?apikey=' + gilt_api_key
-	else:
-		url = '/sales/upcoming.json&apikey=' + gilt_api_key
-	print url
+def AdCategorySearch():
+	# http://hearst.api.mashery.com/AdCategory/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
+ 	call_type = 'AdCategory'
+	url = '/' + call_type + '/search?_pretty=1&start=0&limit=100&sort=name%2Casc&total=0&api_key='+hearst_api_key
 	headers = {}
 	body = ""
-	response, content = http.request(gilt_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
+	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
+	return content
+	
+def ArticleCategorySearch():
+	# http://hearst.api.mashery.com/ArticleCategory/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
+	call_type = 'ArticleCategory'
+	url = '/' + call_type + '/search?'
+	headers = {}
+	body = ""
+	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
+	return content
+	
+def TemplateSearch():
+	# http://hearst.api.mashery.com/Template/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
+	call_type = 'Template'
+	url = '/' + call_type + '/search?'
+	headers = {}
+	body = ""
+	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
+	return content
 
-def GiltSaleDetail(store, sale_key, gilt_api_key):
-	if store != '':
-		url = '/sales/' + store + '/' + sale_key + 'detail.json?apikey=' + gilt_api_key
-	print url
+def SiteSearch():
+	# http://hearst.api.mashery.com/Site/search?_pretty=1&start=0&limit=10&sort=site_name%2Casc&api_key=8qgkp2gtvrbudmfq2mvc2qrv
+	call_type = 'Site'
+	url = '/' + call_type + '/search?'
 	headers = {}
 	body = ""
-	response, content = http.request(gilt_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
-	
-def GiltProductDetail(product_id, gilt_api_key):
-	if store != '':
-		url = '/products/' + product_id + '/detail.json?apikey=' + gilt_api_key
-	print url
-	headers = {}
-	body = ""
-	response, content = http.request(gilt_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
-	
-def GiltProductDetail(gilt_api_key):
-	if store != '':
-		url = '/products/categories.json?apikey=' + gilt_api_key
-	print url
-	headers = {}
-	body = ""
-	response, content = http.request(gilt_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
-
-def GiltActiveSales(store, gilt_api_key):
-	if store != '':
-		url = '/sales/' + store + '/active.json?apikey=' + gilt_api_key
-	else:
-		url = '/sales/active.json&apikey=' + gilt_api_key
-	print url
-	headers = {}
-	body = ""
-	response, content = http.request(gilt_url_base+url, 'GET', headers=headers, body=body)
-	print str(response) + '\t' + str(content)
-
-# store = 'men'
-# GiltActiveSales(store, gilt_api_key)
+	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
+	return content
