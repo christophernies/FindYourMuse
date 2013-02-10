@@ -38,4 +38,6 @@ def index(request, template='index.html'):
 def FilterByMuse(request):
 	if 'q' in request.GET:
 		search_term = request.GET['q']
+		
 		return render_to_response('index.html',{"search_term": search_term})
+	

@@ -10,11 +10,6 @@ cloudmine_url_base = 'https://api.cloudmine.me/v1/app'
 hearst_url_base = 'http://hearst.api.mashery.com/'
 gilt_url_base = 'https://api.gilt.com/v1'
 
-cloudmine_app = 'fc4b2b7a225543e796c753590a2c5a1d'
-cloudmine_api_key = '84e8b6c7379b4952af94f34c7ed283bc'
-hearst_api_key = '8qgkp2gtvrbudmfq2mvc2qrv'
-gilt_api_key = '90d190b533b721fce5717c04ff32fe7e'
-
 http = httplib2.Http()
 
 def postToCloudmine():
