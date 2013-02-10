@@ -149,13 +149,13 @@
         		<select data-placeholder="Who inspires you?" style="width:300px; float:left;" class="chzn-select" tabindex="5">
          		 <option value=""></option>
          		 <optgroup label="Trending">
-         	     <option>Beyonce Knowles</option>
-            	 <option>Kim Kardashian</option>
-            	 <option>Kate Middleton</option>
-            	 <option>George Clooney</option>
-            	 <option>Katie Perry</option>
+         	     <option value="beyonce">Beyonce Knowles</option>
+            	 <option value="bradley+cooper">Bradley Cooper</option>
+            	 <option value="kate+middleton">Kate Middleton</option>
+            	 <option value="George+Clooney">George Clooney</option>
+            	 <option value="Katie+Perry">Katie Perry</option>
          		 </optgroup>
-          
+
         		</select>
             </div>
                  
@@ -361,7 +361,17 @@
     
   });
 </script>
-
+ <script type="text/javascript">
+  $(document).ready(function() {
+    $('.chzn-search').keyup(function() {
+        if (event.keyCode == 13) {
+			var search = $('select.chzn-select option:selected').val();
+			var url = "http://localhost:8000/results?q=" + search;
+			window.location = url;
+         }
+    });
+});
+</script>
 
   </body>
 </html>
