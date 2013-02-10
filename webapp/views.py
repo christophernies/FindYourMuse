@@ -63,4 +63,4 @@ def FilterByMuse(request):
 			style_dict = {}
 		link_to_profile = ''
 		return render_to_response('index.html',{"search_term": array_results, "link_to_profile":link_to_profile})
-	
+			

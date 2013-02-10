@@ -12,43 +12,18 @@
   <script src="/static/app.js"></script>
 
   <link rel="stylesheet" href="/static/style.css" />
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/resources/demos/style.css" />
-    <script>
-    $(function() {
-      var availableSearches = [
-        "Beyonce",
-        "Nicole Richie",
-        "Sarah Jessica Parker",
-        "Amy Odell",
-        "Kate Middleton",
-        "Blake Lively",
-        "Miroslava Duma",
-        "Rachel Zoe",
-        "Zhou Xun",
-        "Emma Stone",
-        "Jessica Alba",
-        "Audrey Hepburn",
-        "Prabal Gurung",
-        "Chanel"
-      ];
-      $( "#search" ).autocomplete({
-        source: availableSearches
-      });
-    });
-    </script>
  </head>
 
  <body>
 	<center>
     <h1><a href="/">Find Your Muse</a></h1>
 	 <form action="/results" method="get" class="form-inline address-search">
-           <input id="search" type="text" size="175" name="q" placeholder="Who's your muse?" class="input-xlarge">
+           <input type="text" size="175" name="q" placeholder="Who's your muse?" class="input-xlarge">
            <button type="submit" class="btn btn-success">Search</button>
        </form>
-	{{search_term}}
+	{% for image in search_term %}
+		<img src="{{image.image}}"></a>
+	{% endfor %}
 	</center>
     <!-- <p>Register with one or more of these services:</p>
 
