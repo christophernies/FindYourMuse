@@ -32,3 +32,8 @@ def index(request, template='index.html'):
             template, locals(), context_instance=RequestContext(request)
         )
     return response
+
+def FilterByMuse(request):
+	if 'q' in request.GET:
+		print request.GET['q']
+		return render_to_response('index.html')

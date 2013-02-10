@@ -15,8 +15,12 @@
  </head>
 
  <body>
-    <h1><a href="/">Singly Django Example</a></h1>
-    <p>Register with one or more of these services:</p>
+    <h1><a href="/">Find Your Muse</a></h1>
+	 <form action="/results" method="get" class="form-inline address-search">
+           <input type="text" name="q" placeholder="Who's your muse?" class="input-xlarge">
+           <button type="submit" class="btn btn-success">Search</button>
+       </form>
+    <!-- <p>Register with one or more of these services:</p>
 
     <ul id="auth">
     {% for service in services %}
@@ -40,7 +44,6 @@
         <p>Profiles: <input type="text" id="access-token" value="{{ user_profile.profiles }}" /></p>
     </div>
     <ul id="twitter"></ul>
-    {% endif %}   
-<a href="/results">Click Me</a>
+    {% endif %}    -->
   </body>
 </html>
