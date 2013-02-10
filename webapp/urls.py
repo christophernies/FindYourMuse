@@ -8,7 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'', include('singly.urls')),
-    url(r'^$', 'index', name='index'),
+    url(r'^$', 'webapp.views.index'),
     url('^results$', FilterByMuse),
     url(r'^admin/', include(admin.site.urls)),
 )
