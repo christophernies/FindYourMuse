@@ -53,11 +53,24 @@ def FilterByMuse(request):
 				if str(x).find('blog_element') != -1:
 					if str(x['body'][0]['blog_element']).find(search_term) != -1:
 						good_articles.append(x)
-		print ArticleImageSearch('', search_term, search_term, limit, hearst_api_key)
-		print '------'
-		print ArticleImageSearch(search_term, '', search_term, limit, hearst_api_key)
-		print '------'
-		print ArticleImageSearch(search_term, search_term, '', limit, hearst_api_key)
+
+		images = []
+		description_keywords = json.loads(ArticleImageSearch('', search_term, search_term, limit, hearst_api_key))['items']
+		for x in description_keywords:
+			images.append(x['default_url'])
+		caption_keywords = json.loads(ArticleImageSearch(search_term, '', search_term, limit, hearst_api_key))['items']
+		for x in caption_keywords:
+			images.append(x['default_url'])
+		caption_description = json.loads(ArticleImageSearch(search_term, search_term, '', limit, hearst_api_key))['items']
+		for x in caption_description:
+			images.append(x['default_url'])
+		
+		for x in images[:]:
+			if x.find('handbag') != -1:
+				images.remove(x)
+
+		for x in images:
+			print str(x) + '\n'
 
 
 		
