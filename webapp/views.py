@@ -129,7 +129,6 @@ def FilterByMuse(request):
 			style_dict['gilt_product'] = gilt_product = Product.objects.order_by('?')[0]
 			array_results.append(style_dict)
 			style_dict = {}
-			link_to_profile = ''
 
-		return render_to_response('index.html', {"search_term": array_results, "link_to_profile": link_to_profile})
+		return render_to_response('index.html', {"search_term": array_results})
 
