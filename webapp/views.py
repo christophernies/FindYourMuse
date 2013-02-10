@@ -5,6 +5,7 @@ from django.http import HttpResponse
 import urllib, httplib2, os, sys, csv, time
 from httplib import BadStatusLine
 from hearst_apis import *
+from login_credentials import *
 
 try:
 	import json
@@ -38,6 +39,7 @@ def index(request, template='index.html'):
 def FilterByMuse(request):
 	if 'q' in request.GET:
 		search_term = request.GET['q']
-		
-		return render_to_response('index.html',{"search_term": search_term})
+		limit = 10
+		API_results = ArticleSearch(search_term, limit, hearst_api_key);
+		return render_to_response('index.html',{"search_term": API_results})
 	
