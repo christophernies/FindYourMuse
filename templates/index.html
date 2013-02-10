@@ -372,7 +372,7 @@
            	<div class="modal-titling">
            
         	<p id="myModalLabel"> 
-            	<span class="myModalLabel">Firstname Lastname</span> <a href="#" class="see-more">See more looks from Firstname Lastname →</a>
+            	<span class="myModalLabel">{{image.title}}</span> <a href="#" class="see-more" data-dismiss="modal">See more looks from {{image.name}} →</a>
             </p>
             
             </div><!-- /.modal-titling --> 
@@ -385,16 +385,17 @@
                 
                 <div class="span8">
                 	
-                    <h3>Article Title Will Go Here</h3>
+                    <h3></h3>
             
                     <!-- <img src="http://placehold.it/670x400"> -->
                     <img src="{{image.image}}">
                     
                     <div class="article-excerpt">
-                        <p class="muted"><small>Saturday February 9, 2013</small></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam purus diam, consequat nec aliquet volutpat, sollicitudin nec eros. Etiam lectus augue, fermentum ut sagittis id, euismod id quam. Donec scelerisque, est ac dapibus lacinia, elit mauris sagittis arcu, et vulputate nulla arcu in turpis. Nunc euismod diam non turpis consequat sed aliquam lorem pretium. Aliquam vitae egestas est. Vivamus in odio sit amet dolor dapibus laoreet nec ac enim. Nullam sed varius lorem. Praesent sit amet quam sapien. Nulla non euismod lorem.</p>
+                        <p class="muted"><small></small></p>
+						<p>{{image.paragraph}}></p>
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam purus diam, consequat nec aliquet volutpat, sollicitudin nec eros. Etiam lectus augue, fermentum ut sagittis id, euismod id quam. Donec scelerisque, est ac dapibus lacinia, elit mauris sagittis arcu, et vulputate nulla arcu in turpis. Nunc euismod diam non turpis consequat sed aliquam lorem pretium. Aliquam vitae egestas est. Vivamus in odio sit amet dolor dapibus laoreet nec ac enim. Nullam sed varius lorem. Praesent sit amet quam sapien. Nulla non euismod lorem.</p> -->
                         
-                        <a href="#">Read more at PublicationName →</a>
+                        <a href="#">Read more at {{image.publication}} →</a>
                     </div>
                     
                 
@@ -413,7 +414,7 @@
             
                     <div class="shopping">
                         
-                        <h5><img src="/static/assets/img/logos/gilt_20x20.jpg" title="Gilt" class="pull-left" />Create your own look with Gilt</h5>
+                        <h5><img src="/static/logos/gilt_20x20.jpg" title="Gilt" class="pull-left" />Create your own look with Gilt</h5>
                                     
                                     
                                     <div class="row-fluid">
@@ -449,7 +450,7 @@
                     </div> <!-- /.shopping-->
                     
                     <div class="twitter">
-                            <h5><img src="img/logos/twitter_20x20.jpg" title="Twitter" class="pull-left" /> Firstname Lastname on Twitter</h5>
+                            <h5><img src="/static/logos/twitter_20x20.jpg" title="Twitter" class="pull-left" /> {{image.name}} on Twitter</h5>
                             <p><blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec purus in ante pretium blandit. Aliquam erat volutpat. Nulla libero lectus."</blockquote></p>
                             <p class="blockquote-size-match">-<a href="#"> @TwitterName</a> <span class="muted"> 12 minutes ago</span></p>
         
@@ -460,7 +461,7 @@
                     </div><!-- /.twitter-->
                     
                     <div class="facebook">
-                            <h5><img src="/static/assets/img/logos/facebook_20x20.jpg" title="Facebook" />Firstname Lastname on Facebook</h5>
+                            <h5><img src="/static/logos/facebook_20x20.jpg" title="Facebook" />{{image.name}} on Facebook</h5>
                             <p><blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec purus in ante pretium blandit. Aliquam erat volutpat. Nulla libero lectus."</blockquote></p>
                             <p class="blockquote-size-match">-<a href="#"> Facebook Fan Page</a> <span class="muted"> 12 minutes ago</span></p>
                             

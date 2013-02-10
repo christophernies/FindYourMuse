@@ -55,6 +55,16 @@ def ArticleImageSearch(caption, description, keywords, limit, hearst_api_key):
 	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
 	return content
 
+def ArticleSearchByID(article_id, hearst_api_key):
+	# http://hearst.api.mashery.com/Article/search?_pretty=1&shape=brief&start=0&limit=10&sort=publish_date%2Cdesc&total=0&api_key=
+	call_type = 'Article'
+	url = '/' + call_type + '/search?_pretty=1&shape=full&start=0&id=' + article_id + '&sort=publish_date%2Cdesc&total=0&api_key='+hearst_api_key
+	url += ''.join(map(lambda x: "&site_id="+str(x),site_ids))
+	headers = {}
+	body = ""
+	response, content = http.request(hearst_url_base+url, 'GET', headers=headers, body=body)
+	return content
+
 def ArticleSectionSearch(keywords, limit, hearst_api_key):
 	# http://hearst.api.mashery.com/ArticleSection/search?_pretty=1&start=0&limit=10&sort=name%2Casc&total=0&api_key='+hearst_api_key
 	call_type = 'ArticleSection'
