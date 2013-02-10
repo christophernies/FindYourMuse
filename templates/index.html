@@ -15,11 +15,14 @@
  </head>
 
  <body>
+	<center>
     <h1><a href="/">Find Your Muse</a></h1>
 	 <form action="/results" method="get" class="form-inline address-search">
-           <input type="text" name="q" placeholder="Who's your muse?" class="input-xlarge">
+           <input type="text" size="175" name="q" placeholder="Who's your muse?" class="input-xlarge">
            <button type="submit" class="btn btn-success">Search</button>
        </form>
+	{{search_term}}
+	</center>
     <!-- <p>Register with one or more of these services:</p>
 
     <ul id="auth">
