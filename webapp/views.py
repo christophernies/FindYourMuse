@@ -33,13 +33,9 @@ def index(request, template='index.html'):
         )
     return response
 
-<<<<<<< HEAD
-def index2(request):
-    return HttpResponse("fuck you world")
-    
-=======
 def FilterByMuse(request):
-	if 'q' in request.GET:
-		print request.GET['q']
-		return render_to_response('index.html')
->>>>>>> 03c5bbccd64c51c72852c044dbee4816e3e01c48
+    if 'q' in request.GET:
+	print request.GET['q']
+	return render_to_response('index.html')
+
+
