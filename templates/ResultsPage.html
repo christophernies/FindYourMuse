@@ -403,19 +403,18 @@
                             <hr class="divider">
                             
                     </div><!-- /.share-->
-                    
-            
+                     
                     <div class="shopping">
                         
                         <h5><img src="/static/logos/gilt_20x20.jpg" title="Gilt" class="pull-left" />Create your own look with Gilt</h5>
                                     
                                     
-                                    <div class="row-fluid">
+                                    <div class="row">
                 
                                     
                                     	<div class="span4 shopping-img">
                                         	
-                                             <a href="#"><img src="http://placehold.it/100x100"></a> 
+                                             <a href="#"><img src="{{  image.gilt_product.image_url }}"></a>
                                            
                                         </div><!-- /.span4-->
                                         
@@ -423,12 +422,12 @@
                                         	
                                             
                                             <div class="shopping-item-price">
-                                                <p><span class="muted strike">$195</span> <span class="gilt">$79</span></p>
+                                                <p><span class="muted strike">{{  image.gilt_product.msrp_price }}</span> <span class="gilt"> {{ image.gilt_product.sale_price }}</span></p>
                                             </div><!-- /.shopping-item-price-->
                                             
                                             
                                             <div class="shopping-item-name">
-                                                <p class="blockquote-size-match"><a href="#">Eyelash Fringe Cashmere Silk Scarf 80" x 20"</a></p>
+                                                <p class="blockquote-size-match"><a href="{{  image.gilt_product.item_url }}">{{ image.gilt_product.name }}</a></p>
                                             </div><!-- /.shopping-item-name-->
                                             
                                         
@@ -441,7 +440,7 @@
                         <hr class="divider">
                             
                     </div> <!-- /.shopping-->
-                    
+
                     <div class="twitter">
                             <h5><img src="/static/logos/twitter_20x20.jpg" title="Twitter" class="pull-left" /> {{image.name}} on Twitter</h5>
                             <p><blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec purus in ante pretium blandit. Aliquam erat volutpat. Nulla libero lectus."</blockquote></p>
@@ -452,14 +451,6 @@
                             <hr class="divider">
                             
                     </div><!-- /.twitter-->
-                    
-                    <div class="facebook">
-                            <h5><img src="/static/logos/facebook_20x20.jpg" title="Facebook" />{{image.name}} on Facebook</h5>
-                            <p><blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec purus in ante pretium blandit. Aliquam erat volutpat. Nulla libero lectus."</blockquote></p>
-                            <p class="blockquote-size-match">-<a href="#"> Facebook Fan Page</a> <span class="muted"> 12 minutes ago</span></p>
-                            
-                    </div><!-- /.twitter-->
-                
                 </div><!-- /.span4 -->
             
             </div><!-- /.modal-body -->
