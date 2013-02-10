@@ -357,7 +357,6 @@
                 <a href="#myModal-{{forloop.counter}}" role="button" class="btn" data-toggle="modal"><img src="{{image.image}}"</img></a>
                 {{image.text}}
             </div>
-    </div>
 
         <!-- Button to trigger modal -->
     <!-- <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
@@ -422,7 +421,7 @@
                                     
                                     	<div class="span4 shopping-img">
                                         	
-                                             <a href="#"><img src="http://placehold.it/100x100"></a> 
+                                             <a href="#"><img src="{{  image.gilt_product.image_url }}"></a>
                                            
                                         </div><!-- /.span4-->
                                         
@@ -430,12 +429,12 @@
                                         	
                                             
                                             <div class="shopping-item-price">
-                                                <p><span class="muted strike">$195</span> <span class="gilt">$79</span></p>
+                                                <p><span class="muted strike">{{  image.gilt_product.msrp_price }}</span> <span class="gilt"> {{ image.gilt_product.sale_price }}</span></p>
                                             </div><!-- /.shopping-item-price-->
                                             
                                             
                                             <div class="shopping-item-name">
-                                                <p class="blockquote-size-match"><a href="#">Eyelash Fringe Cashmere Silk Scarf 80" x 20"</a></p>
+                                                <p class="blockquote-size-match"><a href="{{  image.gilt_product.item_url }}">{{ image.gilt_product.name }}</a></p>
                                             </div><!-- /.shopping-item-name-->
                                             
                                         
@@ -474,7 +473,7 @@
         
             	
         </div><!-- /.modal-header -->
-        
+    </div> <!-- container -->
         
     </div>
         {% endfor %}
