@@ -46,7 +46,8 @@ def FilterByMuse(request):
 	if 'q' in request.GET:
 		search_term = request.GET['q']
 		search_term = search_term.replace(' ','%20')
-		limit = 100
+		# print search_term
+		limit = 10
 		API_results = ArticleSearch(search_term, limit, hearst_api_key)
 		API_JSON = json.loads(API_results)['items']
 
@@ -55,8 +56,7 @@ def FilterByMuse(request):
 		for x in API_JSON:
 			if str(x).find('IMAGE_1_default_url') != -1:
 				if str(x).find('blog_element') != -1:
-					if str(x['body'][0]['blog_element']).find(search_term) != -1:
-						good_articles.append(x)
+					good_articles.append(x)
 
 		images = []
 		description_keywords = json.loads(ArticleImageSearch('', search_term, search_term, limit, hearst_api_key))['items']
@@ -75,7 +75,7 @@ def FilterByMuse(request):
 		for x in images[:]:
 			if x['image'].find('handbag') != -1:
 				images.remove(x)
-		
+		print good_articles
 		API_JSON = good_articles
 
 		# return render_to_response('index.html')
