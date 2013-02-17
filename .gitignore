@@ -1,0 +1,3 @@
+*.pot
+*.pyc
+webapp/login_credentials.py
